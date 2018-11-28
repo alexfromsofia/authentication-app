@@ -2,15 +2,18 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+
 import { signup } from '../../actions';
 
 class Signup extends Component {
   onSubmit = (formProps) => {
-    this.props.signup(formProps);
+    this.props.signup(formProps, () => {
+      this.props.history.push('/feature')
+    });
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { errorMessage, handleSubmit } = this.props;
 
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
@@ -32,13 +35,20 @@ class Signup extends Component {
             autoComplete="none"
           />
         </fieldset>
+        <div className="error-message">
+          { errorMessage }
+        </div>
         <button>Submit</button>
       </form>
     )
   }
 }
 
+const mapStateToProps = (state) => ({
+  errorMessage: state.auth.errorMessage
+});
+
 export default compose(
-  connect(null, { signup }),
+  connect(mapStateToProps, { signup }),
   reduxForm({ form: 'signup' }),
 )(Signup);
