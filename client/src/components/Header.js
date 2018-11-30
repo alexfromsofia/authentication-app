@@ -12,14 +12,14 @@ class Header extends Component {
           <Link to="/signout">Sign out</Link>
           <Link to="/feature">Feature</Link>
         </div>
-      )
+      );
     } else {
       return (
         <div>
           <Link to="/signup">Sign up</Link>
           <Link to="/signin">Sign in</Link>
         </div>
-      )
+      );
     }
   }
 
@@ -29,10 +29,10 @@ class Header extends Component {
         <Link to="/">Redux Auth</Link>
         {this.renderLinks()}
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = state => ({ authenticated: state.auth.authenticated })
+const mapStateToProps = state => ({ authenticated: state.auth.authenticated });
 
 export default connect(mapStateToProps)(Header);

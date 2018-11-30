@@ -7,18 +7,18 @@ export const signup = (formProps, callback) => async dispatch => {
     const response = await axios.post('http://localhost:3090/signup', formProps);
     const { token } = response.data;
 
-    dispatch({ 
+    dispatch({
       type: AUTH_USER,
       payload: token,
-    })
+    });
 
-    localStorage.setItem('token', token)
-    callback()
-  } catch(e) {
+    localStorage.setItem('token', token);
+    callback();
+  } catch (e) {
     dispatch({
       type: AUTH_ERROR,
-      payload: 'Email in use'
-    })
+      payload: 'Email in use',
+    });
   }
 };
 
@@ -27,18 +27,18 @@ export const signin = (formProps, callback) => async dispatch => {
     const response = await axios.post('http://localhost:3090/signin', formProps);
     const { token } = response.data;
 
-    dispatch({ 
+    dispatch({
       type: AUTH_USER,
       payload: token,
-    })
+    });
 
-    localStorage.setItem('token', token)
-    callback()
-  } catch(e) {
+    localStorage.setItem('token', token);
+    callback();
+  } catch (e) {
     dispatch({
       type: AUTH_ERROR,
-      payload: 'Invalid sign in credentials'
-    })
+      payload: 'Invalid sign in credentials',
+    });
   }
 };
 
@@ -48,5 +48,5 @@ export const signout = () => {
   return {
     type: AUTH_USER,
     payload: '',
-  }
-}
+  };
+};

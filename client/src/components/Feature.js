@@ -4,11 +4,7 @@ import requireAuth from './requireAuth';
 
 class Feature extends Component {
   render() {
-    return (
-      <div>
-        Feature Component
-      </div>
-    )
+    return <div>Feature Component</div>;
   }
 }
 

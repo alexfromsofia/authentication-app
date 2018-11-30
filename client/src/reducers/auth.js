@@ -3,10 +3,10 @@ import { AUTH_ERROR, AUTH_USER } from '../actions/types';
 export const INITIAL_STATE = {
   authenticated: false,
   errorMessage: null,
-}
+};
 
 export default (state = INITIAL_STATE, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case AUTH_USER:
       return { ...state, authenticated: action.payload };
     case AUTH_ERROR:
@@ -14,4 +14,4 @@ export default (state = INITIAL_STATE, action) => {
     default:
       return state;
   }
-}
+};
