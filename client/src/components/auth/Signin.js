@@ -6,11 +6,11 @@ import { compose } from 'redux';
 import { signin } from '../../actions';
 
 class Signin extends Component {
-  onSubmit = (formProps) => {
+  onSubmit = formProps => {
     this.props.signin(formProps, () => {
-      this.props.history.push('/feature')
+      this.props.history.push('/feature');
     });
-  }
+  };
 
   render() {
     const { errorMessage, handleSubmit } = this.props;
@@ -19,36 +19,27 @@ class Signin extends Component {
       <form onSubmit={handleSubmit(this.onSubmit)}>
         <fieldset>
           <label>Email</label>
-          <Field 
-            name="email"
-            type="text"
-            component="input"
-            autoComplete="none"
-          />
+          <Field name="email" type="text" component="input" autoComplete="none" />
         </fieldset>
         <fieldset>
           <label>Password</label>
-          <Field
-            name="password"
-            type="password"
-            component="input"
-            autoComplete="none"
-          />
+          <Field name="password" type="password" component="input" autoComplete="none" />
         </fieldset>
-        <div className="error-message">
-          { errorMessage }
-        </div>
+        <div className="error-message">{errorMessage}</div>
         <button>Submit</button>
       </form>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => ({
-  errorMessage: state.auth.errorMessage
+const mapStateToProps = state => ({
+  errorMessage: state.auth.errorMessage,
 });
 
 export default compose(
-  connect(mapStateToProps, { signin }),
+  connect(
+    mapStateToProps,
+    { signin },
+  ),
   reduxForm({ form: 'signin' }),
 )(Signin);

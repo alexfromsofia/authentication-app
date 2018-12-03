@@ -13,14 +13,13 @@ class Header extends Component {
           <Link to="/feature">Feature</Link>
         </div>
       );
-    } else {
-      return (
-        <div>
-          <Link to="/signup">Sign up</Link>
-          <Link to="/signin">Sign in</Link>
-        </div>
-      );
     }
+    return (
+      <div>
+        <Link to="/signup">Sign up</Link>
+        <Link to="/signin">Sign in</Link>
+      </div>
+    );
   }
 
   render() {

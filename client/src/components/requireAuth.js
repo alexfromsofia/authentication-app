@@ -7,15 +7,18 @@ export default ChildComponent => {
     componentDidMount() {
       this.shouldNavigateAway();
     }
+
     // Our component just got updated
     componentDidUpdate() {
       this.shouldNavigateAway();
     }
+
     shouldNavigateAway() {
       if (!this.props.auth) {
         this.props.history.push('/');
       }
     }
+
     render() {
       return <ChildComponent {...this.props} />;
     }

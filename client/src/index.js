@@ -12,7 +12,7 @@ import Feature from './components/Feature';
 const store = createStore(
   reducers,
   {
-    auth: { authenticated: localStorage.getItem('token') }
+    auth: { authenticated: localStorage.getItem('token') },
   },
   applyMiddleware(reduxThunk),
 );
@@ -28,6 +28,6 @@ ReactDOM.render(
         <Route path="/feature" exact component={Feature} />
       </App>
     </BrowserRouter>
-  </Provider>, 
-  document.getElementById('root')
+  </Provider>,
+  document.getElementById('root'),
 );
