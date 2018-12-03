@@ -1,4 +1,8 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { applyMiddleware, createStore } from 'redux';
+import { Provider } from 'react-redux';
 import reduxThunk from 'redux-thunk';
 
 import reducers from './reducers';

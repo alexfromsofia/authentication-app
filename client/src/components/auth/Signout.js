@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { signout } from '../../actions';
+import * as actions from '../../actions';
 
 class Signout extends Component {
   componentDidMount() {
-    this.props.signout();
+    const { signout } = this.props;
+
+    signout();
   }
 
   render() {
@@ -12,7 +15,11 @@ class Signout extends Component {
   }
 }
 
+Signout.propTypes = {
+  signout: PropTypes.func.isRequired,
+};
+
 export default connect(
   null,
-  { signout },
+  actions,
 )(Signout);
